@@ -1,0 +1,87 @@
+@startuml
+' UML legend:
+' table = class
+' #pkey
+' -fkey
+' +index
+
+class Users {
+==
+  #Id: int
+  Login: string
+  Password: string
+  CreationDateTime: Date
+==
+}
+
+class Teams {
+  ==
+    #Id: int
+    Name: string
+  ==
+}
+
+class Players {
+  ==
+    #Id: int
+    -TeamId: int
+    -PositionId: int
+    Name: string
+    Number: int
+    Age: int
+    ContractExpireDate: Date
+    -UserId: int
+  ==
+}
+
+class PositionList {
+  ==
+    #Id: int
+    Position: string
+  ==
+}
+
+class SeasonData {
+  ==
+    #Id: int
+    -PlayerId: int
+    Appearences: int
+    Season: int
+    Shots: int
+    Goals: int
+    Assists: int
+    Passes: int
+    CompletedPasses: int
+    Tackle: int
+    CompletedTackle: int
+    Saves: int?
+  ==
+}
+
+class Formations {
+  ==
+    #Id: int
+    Formation: string
+    AttackersAmount: int
+    MidfieldersAmount: int
+    DefendersAmout: int
+  ==
+}
+
+class GamePlans {
+  ==
+    #Id: int
+    -FormationId: int
+    AttackersIds: int[]
+    MidfieldersIds: int[]
+    DefendersIds: int[]
+  ==
+}
+
+Teams --* Players
+PositionList --* Players
+Players --* SeasonData
+Users --* Players
+GamePlans --* Formations
+
+@enduml
