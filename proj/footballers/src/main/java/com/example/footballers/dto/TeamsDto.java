@@ -2,7 +2,6 @@ package com.example.footballers.dto;
 
 import org.springframework.lang.Nullable;
 
-import java.sql.Blob;
 import java.util.Date;
 
 public class TeamsDto {
@@ -10,10 +9,11 @@ public class TeamsDto {
     private String Name;
     private Date DateTimeAdd;
     private String ShortName;
-    @Nullable
-    private Blob Img;
 
-    public TeamsDto(Integer id, String name, Date dateTimeAdd, String shortName, @Nullable Blob img) {
+    @Nullable
+    private Object Img;
+
+    public TeamsDto(Integer id, String name, Date dateTimeAdd, String shortName, @Nullable Object img) {
         Id = id;
         Name = name;
         DateTimeAdd = dateTimeAdd;
@@ -57,11 +57,11 @@ public class TeamsDto {
     }
 
     @Nullable
-    public Blob getImg() {
+    public Object getImg() {
         return Img;
     }
 
-    public void setImg(@Nullable Blob img) {
+    public void setImg(@Nullable Object img) {
         Img = img;
     }
 }

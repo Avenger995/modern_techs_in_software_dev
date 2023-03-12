@@ -2,11 +2,7 @@ package com.example.footballers.models;
 
 import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Blob;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -27,7 +23,7 @@ public class Teams {
     private Date DateTimeAdd;
     private String ShortName;
     @Nullable
-    private Blob Img;
+    private byte[] Img;
 
 
     public String getShortName() {
@@ -62,11 +58,11 @@ public class Teams {
         DateTimeAdd = dateTimeAdd;
     }
 
-    public Blob getImg() {
+    public byte[] getImg() {
         return Img;
     }
 
-    public void setImg(Blob img) {
+    public void setImg(byte[] img) {
         Img = img;
     }
 }

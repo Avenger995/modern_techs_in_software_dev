@@ -1,0 +1,11 @@
+.teams__img {
+    height: 85px;
+    width: 90px;
+    align-self: center;
+    flex-basis: initial
+}
+
+.teams__button {
+    margin: 0.2rem;
+}
+

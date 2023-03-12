@@ -1,0 +1,23 @@
+.team__list {
+    display: flex;
+    margin: 10px 0px 10px 7.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.team__div__center {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2rem;
+}
+
+.team__div__center > button {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    height: min-content;
+}
+
+.team__list > .row-custom {
+    margin-left: 0;
+    margin-right: 0;
+}
