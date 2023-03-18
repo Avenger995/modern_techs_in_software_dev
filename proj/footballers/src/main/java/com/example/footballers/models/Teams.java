@@ -4,6 +4,7 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Teams {
@@ -25,6 +26,17 @@ public class Teams {
     @Nullable
     private byte[] Img;
 
+    @OneToMany(targetEntity = Players.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "team", referencedColumnName = "Id")
+    private List<Players> Players;
+
+    public List<com.example.footballers.models.Players> getPlayers() {
+        return Players;
+    }
+
+    public void setPlayers(List<com.example.footballers.models.Players> players) {
+        Players = players;
+    }
 
     public String getShortName() {
         return ShortName;

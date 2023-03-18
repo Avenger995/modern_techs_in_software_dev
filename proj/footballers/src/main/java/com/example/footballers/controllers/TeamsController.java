@@ -5,11 +5,9 @@ import com.example.footballers.models.Teams;
 import com.example.footballers.services.interfaces.ITeamsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*", exposedHeaders = "*")
@@ -26,7 +24,6 @@ public class TeamsController {
         return _teamsService.getAllTeams();
     }
 
-
     @PostMapping("/add")
     public ResponseEntity<Teams> addNewTeam(@RequestBody Map<String, Object> dto) {
         try {
@@ -38,7 +35,7 @@ public class TeamsController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Teams> deleteTeamById(@PathVariable int id) {
+    public ResponseEntity<Teams> deleteTeamById(@PathVariable Integer id) {
         try {
             _teamsService.DeleteTeamById(id);
             return new ResponseEntity<Teams>(HttpStatus.OK);

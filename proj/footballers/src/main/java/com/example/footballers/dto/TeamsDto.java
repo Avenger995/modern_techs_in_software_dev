@@ -9,7 +9,6 @@ public class TeamsDto {
     private String Name;
     private Date DateTimeAdd;
     private String ShortName;
-
     @Nullable
     private Object Img;
 

@@ -6,7 +6,6 @@ import com.example.footballers.models.Teams;
 import com.example.footballers.repos.interfaces.ITeamsRepos;
 import com.example.footballers.services.interfaces.ITeamsService;
 import org.springframework.stereotype.Service;
-import org.springframework.util.SerializationUtils;
 
 import java.util.Map;
 
@@ -29,7 +28,7 @@ public class TeamsService implements ITeamsService {
         return _teamsRepos.save(team);
     }
 
-    public void DeleteTeamById(int id) {
+    public void DeleteTeamById(Integer id) {
         _teamsRepos.deleteById(id);
         return;
     }

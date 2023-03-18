@@ -3,9 +3,10 @@ import TeamsItem from "./TeamsItem";
 import CrudService from "../../services/CrudService";
 import ApiPath from "../../constans/ApiPath";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Spinner, Alert, Row} from 'react-bootstrap';
+import { Alert, Row} from 'react-bootstrap';
 import { useFetching } from "../../hooks/useFetching";
 import  "../../styles/TeamsListStyle.css";
+import ConstSpinner from "../UI/ConstSpinner";
 
 
 const TeamsList = ({render}) => {
@@ -37,9 +38,7 @@ const TeamsList = ({render}) => {
                 <Alert key='danger' variant='danger'>
                     {teamsError}
                 </Alert>}
-                {isTeamsLoading ? <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner> :
+                {isTeamsLoading ? <ConstSpinner></ConstSpinner> :
                     <Row xs={1} md={2} className="row-custom">
                     {teams.map((team) => 
                         <TeamsItem team={team} key={team.id} deleteTeam={deleteTeam} setDeleteTeam={setDeleteTeam}/>

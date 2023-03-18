@@ -50,7 +50,6 @@ const TeamsPage = () => {
                 <TeamsList render={showModal}/>
             </div>
             <TeamsDialog active={showModal} setActive={setShowModal} error={error} setError={setError}/>
-           
         </div>
     );
 }
