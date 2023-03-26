@@ -23,7 +23,7 @@ public class TeamsService implements ITeamsService {
         return TeamsMapper.toDtoIterable(_teamsRepos.findAll());
     }
 
-    public Teams AddNewTeam(Map<String, Object> dto) {
+    public Teams AddNewTeam(TeamsDto dto) {
         Teams team = TeamsMapper.toModel(dto);
         return _teamsRepos.save(team);
     }

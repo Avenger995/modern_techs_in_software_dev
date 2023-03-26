@@ -1,12 +1,12 @@
 import Enviroment from "../enviroment/Enviroment"
 
 export const Teams = Enviroment.ApiUrl + 'teams'
-export const AddTeams = Teams + '/add'
-export const DeleteTeams = Teams + '/delete'
+export const AddTeams = Teams
+export const DeleteTeams = Teams + '/'
 
 export const PlayersByTeam = Enviroment.ApiUrl + 'players'
-export const UpdatePlayer = PlayersByTeam + '/update'
-export const AddPlayer = PlayersByTeam + '/add'
+export const UpdatePlayer = PlayersByTeam
+export const AddPlayer = PlayersByTeam
 
 export const PositionsList = Enviroment.ApiUrl + 'positions'
 

@@ -23,19 +23,19 @@ public class PlayersService implements IPlayersService {
         return PlayersMapper.toDtoIterable(_playerRepos.findAll());
     }
 
-    public Players updatePlayerData(Map<String, Object> dto) {
-        Players player = _playerRepos.findById((Integer)dto.get("id")).orElse(null);
+    public Players updatePlayerData(PlayersDto dto) {
+        Players player = _playerRepos.findById(dto.getId()).orElse(null);
         if (player != null) {
-            player.setAge(Integer.parseInt((String)dto.get("age")));
-            player.setName((String)dto.get("name"));
-            player.setNumber(Integer.parseInt((String)dto.get("number")));
-            player.setImg(SerializationUtils.serialize(dto.get("img")));
+            player.setAge(dto.getAge());
+            player.setName(dto.getName());
+            player.setNumber(dto.getNumber());
+            player.setImg(SerializationUtils.serialize(dto.getImg()));
             return _playerRepos.save(player);
         }
         return null;
     }
 
-    public Players addPlayerData(Map<String, Object> dto){
+    public Players addPlayerData(PlayersDto dto){
         Players newPlayer = PlayersMapper.toModel(dto);
         _playerRepos.save(newPlayer);
         return null;

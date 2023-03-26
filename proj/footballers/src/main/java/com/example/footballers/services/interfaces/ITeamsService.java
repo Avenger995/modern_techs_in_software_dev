@@ -8,6 +8,6 @@ import java.util.Map;
 public interface ITeamsService {
 
     Iterable<TeamsDto> getAllTeams();
-    Teams AddNewTeam(Map<String, Object> dto);
+    Teams AddNewTeam(TeamsDto dto);
     void DeleteTeamById(Integer id);
 }

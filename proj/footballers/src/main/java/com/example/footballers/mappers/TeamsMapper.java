@@ -22,11 +22,11 @@ public interface TeamsMapper {
     //Teams toModel(TeamsDto dto);
 
     @Named("jsonToModel")
-    public static Teams toModel(Map<String, Object> dto) {
+    public static Teams toModel(TeamsDto dto) {
         Teams teams = new Teams();
-        byte[] img = SerializationUtils.serialize(dto.get("img"));
-        teams.setName((String)dto.get("name"));
-        teams.setShortName((String)dto.get("shortName"));
+        byte[] img = SerializationUtils.serialize(dto.getImg());
+        teams.setName(dto.getName());
+        teams.setShortName(dto.getShortName());
         teams.setImg(img);
         teams.setDateTimeAdd(new Date());
         return teams;
@@ -48,5 +48,4 @@ public interface TeamsMapper {
         }
         return dtos;
     }
-
 }

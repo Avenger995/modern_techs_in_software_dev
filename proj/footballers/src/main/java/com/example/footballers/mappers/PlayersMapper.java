@@ -1,18 +1,14 @@
 package com.example.footballers.mappers;
 
 import com.example.footballers.dto.PlayersDto;
-import com.example.footballers.dto.TeamsDto;
 import com.example.footballers.models.Players;
-import com.example.footballers.models.Teams;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import org.springframework.util.SerializationUtils;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface PlayersMapper {
@@ -34,14 +30,14 @@ public interface PlayersMapper {
     }
 
     @Named("dtoToModel")
-    public static Players toModel(Map<String, Object> dto) {
+    public static Players toModel(PlayersDto dto) {
         Players player = new Players();
-        byte[] img = SerializationUtils.serialize(dto.get("img"));
-        player.setAge(Integer.parseInt((String)dto.get("age")));
-        player.setName((String)dto.get("name"));
-        player.setNumber(Integer.parseInt((String)dto.get("number")));
-        player.setPosition((Integer)dto.get("position"));
-        player.setTeam(Integer.parseInt((String)dto.get("team")));
+        byte[] img = SerializationUtils.serialize(dto.getImg());
+        player.setAge(dto.getAge());
+        player.setName(dto.getName());
+        player.setNumber(dto.getNumber());
+        player.setPosition(dto.getPosition());
+        player.setTeam(dto.getTeam());
         player.setImg(img);
         return player;
     }

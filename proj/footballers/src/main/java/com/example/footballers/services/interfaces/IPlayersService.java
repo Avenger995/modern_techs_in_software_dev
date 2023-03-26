@@ -7,6 +7,6 @@ import java.util.Map;
 
 public interface IPlayersService {
     Iterable<PlayersDto> getPlayersByTeamId(Integer id);
-    Players updatePlayerData(Map<String, Object> dto);
-    Players addPlayerData(Map<String, Object> dto);
+    Players updatePlayerData(PlayersDto dto);
+    Players addPlayerData(PlayersDto dto);
 }

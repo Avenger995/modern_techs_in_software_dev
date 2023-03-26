@@ -5,7 +5,10 @@ public class PlayersDto {
     private String Name;
     private Integer Number;
     private Integer Age;
+    private Integer Position;
+    private Integer Team;
     private Object Img;
+
 
     public Integer getId() {
         return Id;
@@ -45,5 +48,21 @@ public class PlayersDto {
 
     public void setImg(Object img) {
         Img = img;
+    }
+
+    public Integer getPosition() {
+        return Position;
+    }
+
+    public void setPosition(Integer position) {
+        Position = position;
+    }
+
+    public Integer getTeam() {
+        return Team;
+    }
+
+    public void setTeam(Integer team) {
+        Team = team;
     }
 }
