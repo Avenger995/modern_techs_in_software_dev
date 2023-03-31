@@ -22,7 +22,6 @@ public class PositionsListService implements IPositionsListService {
 
     @Override
     public Iterable<PositionListDto> getAllPositionList() {
-        Iterable<PositionListDto> positionLists = PositionListMapper.toDtoIterable(_positionListRepos.findAll());
-        return positionLists;
+        return PositionListMapper.toDtoIterable(_positionListRepos.findAll());
     }
 }

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6210deba-3c10-4bfb-a2cc-229be35574cc" activeEnvironment="Default" name="demo" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="385b430f-454a-4a5e-880e-f11fda6fddc0" wsaVersion="NONE" name="SkillsSoapBinding" type="wsdl" bindingName="{http://soap.footballers.example.com/}SkillsSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/Service/Skills?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/Service/Skills?wsdl"><con:part><con:url>http://localhost:8080/Service/Skills?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Skills" targetNamespace="http://soap.footballers.example.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.footballers.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://soap.footballers.example.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addSkill" type="tns:addSkill"/>
+      <xs:element name="addSkillResponse" type="tns:addSkillResponse"/>
+      <xs:element name="delSkill" type="tns:delSkill"/>
+      <xs:element name="delSkillResponse" type="tns:delSkillResponse"/>
+      <xs:element name="getSkill" type="tns:getSkill"/>
+      <xs:element name="getSkillResponse" type="tns:getSkillResponse"/>
+      <xs:complexType name="addSkill">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="skills" type="tns:skillsDto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="skillsDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defence" type="xs:int"/>
+          <xs:element minOccurs="0" name="dribbling" type="xs:int"/>
+          <xs:element minOccurs="0" name="passing" type="xs:int"/>
+          <xs:element minOccurs="0" name="physic" type="xs:int"/>
+          <xs:element minOccurs="0" name="player" type="xs:int"/>
+          <xs:element minOccurs="0" name="seasonStart" type="xs:int"/>
+          <xs:element minOccurs="0" name="shot" type="xs:int"/>
+          <xs:element minOccurs="0" name="speed" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addSkillResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSkill">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="playerId" type="xs:int"/>
+          <xs:element minOccurs="0" name="season" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSkillResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:skills"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="skills">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defence" type="xs:int"/>
+          <xs:element minOccurs="0" name="dribbling" type="xs:int"/>
+          <xs:element minOccurs="0" name="id" type="xs:int"/>
+          <xs:element minOccurs="0" name="passing" type="xs:int"/>
+          <xs:element minOccurs="0" name="physic" type="xs:int"/>
+          <xs:element minOccurs="0" name="player" type="xs:int"/>
+          <xs:element minOccurs="0" name="seasonStart" type="xs:int"/>
+          <xs:element minOccurs="0" name="shot" type="xs:int"/>
+          <xs:element minOccurs="0" name="speed" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delSkill">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="playerId" type="xs:int"/>
+          <xs:element minOccurs="0" name="season" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delSkillResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SoapException" type="tns:SoapException"/>
+      <xs:complexType name="SoapException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addSkill">
+    <wsdl:part element="tns:addSkill" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSkillResponse">
+    <wsdl:part element="tns:getSkillResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SoapException">
+    <wsdl:part element="tns:SoapException" name="SoapException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSkill">
+    <wsdl:part element="tns:getSkill" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delSkill">
+    <wsdl:part element="tns:delSkill" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addSkillResponse">
+    <wsdl:part element="tns:addSkillResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delSkillResponse">
+    <wsdl:part element="tns:delSkillResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="addSkill">
+    <wsdl:operation name="addSkill">
+      <wsdl:input message="tns:addSkill" name="addSkill"></wsdl:input>
+      <wsdl:output message="tns:addSkillResponse" name="addSkillResponse"></wsdl:output>
+      <wsdl:fault message="tns:SoapException" name="SoapException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSkill">
+      <wsdl:input message="tns:getSkill" name="getSkill"></wsdl:input>
+      <wsdl:output message="tns:getSkillResponse" name="getSkillResponse"></wsdl:output>
+      <wsdl:fault message="tns:SoapException" name="SoapException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="delSkill">
+      <wsdl:input message="tns:delSkill" name="delSkill"></wsdl:input>
+      <wsdl:output message="tns:delSkillResponse" name="delSkillResponse"></wsdl:output>
+      <wsdl:fault message="tns:SoapException" name="SoapException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SkillsSoapBinding" type="tns:addSkill">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addSkill">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addSkill">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addSkillResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SoapException">
+        <soap:fault name="SoapException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSkill">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSkill">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSkillResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SoapException">
+        <soap:fault name="SoapException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="delSkill">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="delSkill">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delSkillResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SoapException">
+        <soap:fault name="SoapException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Skills">
+    <wsdl:port binding="tns:SkillsSoapBinding" name="SkillsServiceImplPort">
+      <soap:address location="http://localhost:8080/Service/Skills"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/Service/Skills</con:endpoint></con:endpoints><con:operation id="3d154249-303f-447c-9adb-45a7213c412f" isOneWay="false" action="" name="addSkill" bindingOperationName="addSkill" type="Request-Response" outputName="addSkillResponse" inputName="addSkill" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0265a9c1-0be3-4192-bf94-3b40b293d153" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/Service/Skills</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.footballers.example.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:addSkill>\r
+         <!--Optional:-->\r
+         <skills>\r
+            <!--Optional:-->\r
+            <defence>9</defence>\r
+            <!--Optional:-->\r
+            <dribbling>9</dribbling>\r
+            <!--Optional:-->\r
+            <passing>9</passing>\r
+            <!--Optional:-->\r
+            <physic>9</physic>\r
+            <!--Optional:-->\r
+            <player>2</player>\r
+            <!--Optional:-->\r
+            <seasonStart>2022</seasonStart>\r
+            <!--Optional:-->\r
+            <shot>5</shot>\r
+            <!--Optional:-->\r
+            <speed>5</speed>\r
+         </skills>\r
+      </soap:addSkill>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.footballers.example.com/addSkill/addSkill"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2aafe254-432b-454b-a0aa-0843c0da4409" isOneWay="false" action="" name="delSkill" bindingOperationName="delSkill" type="Request-Response" outputName="delSkillResponse" inputName="delSkill" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1e1378b3-4f60-4f10-bcb0-eec7409cdac9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/Service/Skills</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.footballers.example.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:delSkill>\r
+         <!--Optional:-->\r
+         <playerId>2</playerId>\r
+         <!--Optional:-->\r
+         <season>2022</season>\r
+      </soap:delSkill>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.footballers.example.com/addSkill/delSkill"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ffefb99e-64fd-49a8-9ff0-f42677a48982" isOneWay="false" action="" name="getSkill" bindingOperationName="getSkill" type="Request-Response" outputName="getSkillResponse" inputName="getSkill" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="165212a4-0692-49fa-b88f-0da1090eb35e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/Service/Skills</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.footballers.example.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getSkill>\r
+         <!--Optional:-->\r
+         <playerId>?</playerId>\r
+         <!--Optional:-->\r
+         <season>?</season>\r
+      </soap:getSkill>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.footballers.example.com/addSkill/getSkill"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
