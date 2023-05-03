@@ -68,11 +68,7 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
-<<<<<<< HEAD
 			<version>3.5.5</version>
-=======
-			<version>3.5.2</version>
->>>>>>> 150c59963c22a4702d57206cd5a17e19c3b51739
 		</dependency>
     </dependencies>
 

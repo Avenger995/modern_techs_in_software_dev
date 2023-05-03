@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="6210deba-3c10-4bfb-a2cc-229be35574cc" activeEnvironment="Default" name="demo" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="385b430f-454a-4a5e-880e-f11fda6fddc0" wsaVersion="NONE" name="SkillsSoapBinding" type="wsdl" bindingName="{http://soap.footballers.example.com/}SkillsSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/Service/Skills?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/Service/Skills?wsdl"><con:part><con:url>http://localhost:8080/Service/Skills?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Skills" targetNamespace="http://soap.footballers.example.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.footballers.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+<con:soapui-project id="6210deba-3c10-4bfb-a2cc-229be35574cc" activeEnvironment="Default" name="demo" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="385b430f-454a-4a5e-880e-f11fda6fddc0" wsaVersion="NONE" name="SkillsSoapBinding" type="wsdl" bindingName="{http://soap.footballers.example.com/}SkillsSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/Service/Skills?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/Service/Skills?wsdl"><con:part><con:url>http://localhost:8080/Service/Skills?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Skills" targetNamespace="http://soap.footballers.example.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.footballers.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
   <wsdl:types>
     <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://soap.footballers.example.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="addSkill" type="tns:addSkill"/>
@@ -164,7 +164,7 @@
             <!--Optional:-->\r
             <defence>9</defence>\r
             <!--Optional:-->\r
-            <dribbling>9</dribbling>\r
+            <dribbling>5</dribbling>\r
             <!--Optional:-->\r
             <passing>9</passing>\r
             <!--Optional:-->\r
@@ -172,7 +172,7 @@
             <!--Optional:-->\r
             <player>2</player>\r
             <!--Optional:-->\r
-            <seasonStart>2022</seasonStart>\r
+            <seasonStart>2023</seasonStart>\r
             <!--Optional:-->\r
             <shot>5</shot>\r
             <!--Optional:-->\r
