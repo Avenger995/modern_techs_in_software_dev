@@ -42,5 +42,15 @@ public class PlayersController {
             return new ResponseEntity<Players>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Players> delPlayerData(@PathVariable Integer id) {
+        try {
+            _playersService.deletePlayerData(id);
+            return new ResponseEntity<Players>(HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<Players>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
 

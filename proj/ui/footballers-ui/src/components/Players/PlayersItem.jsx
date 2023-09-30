@@ -9,7 +9,7 @@ import PlayerAddDialog from "./PlayerAddDialog";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const PlayersItem = ({pos, activate, setActivate, team}) => {
+const PlayersItem = ({pos, activate, setActivate, team, isDialog}) => {
 
     const [type, setType] = useState(null);
     const [error, setError] = useState(null);
@@ -58,7 +58,7 @@ const PlayersItem = ({pos, activate, setActivate, team}) => {
             </div>
             <div>
                 {pos.players.map(p => 
-                    <Player player={p} key={p.id} activate={activate} setActivate={setActivate} team={team}/>)}
+                    <Player player={p} key={p.id} activate={activate} setActivate={setActivate} team={team} isDialog={false}/>)}
             </div>
             {type === DialogTypeEnum.Add && <PlayerAddDialog active={activate} 
                 setActive={setActivate} 

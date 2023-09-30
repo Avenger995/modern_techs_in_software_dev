@@ -9,4 +9,5 @@ public interface IPlayersService {
     Iterable<PlayersDto> getPlayersByTeamId(Integer id);
     Players updatePlayerData(PlayersDto dto);
     Players addPlayerData(PlayersDto dto);
+    void deletePlayerData(Integer id);
 }

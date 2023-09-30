@@ -3,12 +3,13 @@ import * as Icon from 'react-bootstrap-icons';
 import {Button, Card} from 'react-bootstrap';
 import '../../styles/PlayersStyle.css';
 import PlayerEditDialog from "./PlayerEditDialog";
+import PlayerDeleteDialog from "./PlayerDeleteDialog";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DialogTypeEnum } from "../../constans/DialogTypeEnum";
 
-const Player = ({player, activate, setActivate, team}) => {
+const Player = ({player, activate, setActivate, team, isDialog}) => {
 
   const [hover, setHover] = useState();
   const [error, setError] = useState(null);
@@ -65,13 +66,14 @@ const Player = ({player, activate, setActivate, team}) => {
             <Card.Img className="player__custom_img" variant="top" src={`${player.img}`}/> 
             <br/>
             <Button className="player__button" variant="light" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Upd)}><Icon.PencilFill/></Button>
-            <Button className="player__button" variant="danger"  hidden={!hover}><Icon.Trash3Fill/></Button>
+            <Button className="player__button" variant="danger" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Del)}><Icon.Trash3Fill/></Button>
         </div>
         <Card.Body>
             <Card.Text>{player.name}</Card.Text>
         </Card.Body>
         </Card>
         {type === DialogTypeEnum.Upd && <PlayerEditDialog active={activate} setActive={setActivate} error={error} setError={setError} player={player}/>}
+        {type === DialogTypeEnum.Del && <PlayerDeleteDialog active={activate} setActive={setActivate} error={error} setError={setError} name={player.name} id={player.id}/>}
       </div>
     );
 }

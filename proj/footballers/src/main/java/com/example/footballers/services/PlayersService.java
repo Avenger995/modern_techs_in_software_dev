@@ -40,4 +40,10 @@ public class PlayersService implements IPlayersService {
         _playerRepos.save(newPlayer);
         return null;
     }
+
+    public void deletePlayerData(Integer id) {
+        Players player = _playerRepos.findById(id).orElse(null);
+        _playerRepos.delete(player);
+        return;
+    }
 }

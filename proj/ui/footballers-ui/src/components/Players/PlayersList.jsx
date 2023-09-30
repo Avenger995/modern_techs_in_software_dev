@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ConstSpinner from "../UI/ConstSpinner";
 import PlayersItem from "./PlayersItem";
 
-const PlayersList = ({teamId}) => {
+const PlayersList = ({teamId, isDialog}) => {
 
     const [positions, setPositions] = useState([]);
     const [activate, setActivate] = useState(false);

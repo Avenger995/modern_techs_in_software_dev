@@ -4,22 +4,24 @@ import CrudService from "../../services/CrudService";
 import { useFetching } from "../../hooks/useFetching";
 import ApiPath from "../../constans/ApiPath";
 
-const TeamDeleteDialog = ({active, setActive, error, setError, name, id}) => {
+const PlayerDeleteDialog = ({active, setActive, error, setError, name, id}) => {
+
     const [fetch, setFetch] = useState(false);
-    const [deleteTeam, isTeamsLoading, teamsError] = useFetching( async (id) => {
-        await CrudService.deleteById(ApiPath.DeleteTeams, id);
+    const [deletePlayer, isPlayerLoading, playerError] = useFetching( async (id) => {
+        await CrudService.deleteById(ApiPath.DeletePlayer, id);
     });
+
     const handleClose = () => setActive(false);
     const handleSubmit = async (event) => {
         event.preventDefault();
         event.stopPropagation();
-        await deleteTeam(id);
+        await deletePlayer(id);
         setFetch(true);
     }
 
     useEffect(() => {
         if (fetch) {
-            setError(teamsError);
+            setError(playerError);
             setActive(false);
         }
         setFetch(false);
@@ -28,14 +30,14 @@ const TeamDeleteDialog = ({active, setActive, error, setError, name, id}) => {
     return(
         <Modal show={active} onHide={handleClose}>
             <Modal.Header closeButton>
-          <Modal.Title>Удаление команды</Modal.Title>
+          <Modal.Title>Удаление игрока</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <Form noValidate onSubmit={handleSubmit}>
-            <FormLabel>Вы действительно хотите удалить команду {name}?</FormLabel>
+            <FormLabel>Вы действительно хотите удалить игрока {name}?</FormLabel>
             <Modal.Footer>
             <Button type="submit" variant="danger">
-                    Да
+                Да
             </Button>
             </Modal.Footer>
             </Form>
@@ -44,4 +46,4 @@ const TeamDeleteDialog = ({active, setActive, error, setError, name, id}) => {
     )
 }
 
-export default TeamDeleteDialog;
+export default PlayerDeleteDialog;

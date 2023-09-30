@@ -54,7 +54,7 @@ const TeamsItem = ({team, deleteTeam, setDeleteTeam}) => {
         <Card.Body>
             <Card.Title>{team.name}</Card.Title>
             <Card.Text>{team.shortName}</Card.Text>
-            <Button className="teams__button" variant="primary"><Icon.Journal/> Формации</Button>
+            <Button className="teams__button" variant="primary" onClick={() => router(UrlPath.Formations.concat(`?${UrlKeys.TeamKey}=${team.id}&${UrlKeys.TeamName}=${team.name}`))}><Icon.Journal/> Формации</Button>
             <Button className="teams__button" variant="light" onClick={() => router(UrlPath.Players.concat(`?${UrlKeys.TeamKey}=${team.id}&${UrlKeys.TeamName}=${team.name}`))}><Icon.PeopleFill/> Игроки</Button>
             <Button className="teams__button" variant="danger" onClick={async () => setActive(true)}><Icon.Trash3Fill/> Удалить</Button>
             <TeamDeleteDialog active={activate} setActive={setActive} error={error} setError={setError} name={team.name} id={team.id}/>

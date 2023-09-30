@@ -39,3 +39,10 @@
 .pos__container {
     margin-bottom: 2rem;
 }
+
+.players__title {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2rem;
+    align-content: center;
+}

@@ -1,0 +1,28 @@
+.formation__pitch__div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.formation__pitch__area .formation__player__area:first-child {
+    position: absolute;
+    max-width: fit-content;
+    justify-content: center;
+    display: grid;
+    left: 15%;
+    top: 40%
+}
+
+.formation__pitch__area .formation__player__area {
+    position: absolute;
+    max-width: fit-content;
+    justify-content: center;
+    display: grid;
+    left: var(--left);
+    top: var(--top);
+}
+
+.formation__player__button {
+    margin: 150% 0% 150% 0%;
+}
