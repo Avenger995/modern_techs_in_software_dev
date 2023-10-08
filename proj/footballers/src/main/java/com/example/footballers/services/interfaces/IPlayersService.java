@@ -10,4 +10,5 @@ public interface IPlayersService {
     Players updatePlayerData(PlayersDto dto);
     Players addPlayerData(PlayersDto dto);
     void deletePlayerData(Integer id);
+    PlayersDto getPlayerData(Integer id) throws Exception;
 }

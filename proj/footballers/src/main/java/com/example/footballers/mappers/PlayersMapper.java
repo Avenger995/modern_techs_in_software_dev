@@ -41,4 +41,15 @@ public interface PlayersMapper {
         player.setImg(img);
         return player;
     }
+
+    @Named("modelToDto")
+    public static PlayersDto toDto(Players player) {
+        PlayersDto dto = new PlayersDto();
+        dto.setId(player.getId());
+        dto.setName(player.getName());
+        dto.setNumber(player.getNumber());
+        dto.setAge(player.getAge());
+        dto.setImg(SerializationUtils.deserialize(player.getImg()));
+        return dto;
+    }
 }

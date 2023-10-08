@@ -9,6 +9,11 @@ export default class CrudService {
         return response;
     }
 
+    static async getById(url, id) {
+        const response = await axios.get(String(url) + `/${id}`);
+        return response;
+    }
+
     static async getAllByTeam(url) {
         const response = await axios.get(String(url));
         return response;

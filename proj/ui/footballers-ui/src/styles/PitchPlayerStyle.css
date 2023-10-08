@@ -1,0 +1,19 @@
+.pitch__player__card {
+    --bs-card-border-width: 0;
+    align-items: center;
+}
+
+.pitch__player__icon {
+    align-self: end;
+    padding: 0;
+    border: none;
+    background: none;
+    margin-right: 5px;
+}
+
+.pitch__player__custom_img {
+    max-width: 5rem;
+    max-height: 7rem;
+    border-radius: 25px;
+    
+}

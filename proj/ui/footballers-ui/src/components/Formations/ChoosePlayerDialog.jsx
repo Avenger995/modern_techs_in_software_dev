@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
+import PlayersList from "../Players/PlayersList";
 
 
-const ChoosePlayerDialog = ({active, setActive, error, setError, teamId, id}) => {
+const ChoosePlayerDialog = ({active, setActive, error, setError, teamId, id, onChangeChoosePlayer}) => {
     
     const [fetch, setFetch] = useState(false);
 
@@ -11,9 +12,11 @@ const ChoosePlayerDialog = ({active, setActive, error, setError, teamId, id}) =>
     return(
         <Modal show={active} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>id = {teamId}</Modal.Title>
+                <Modal.Title>Выберите игрока на позицию</Modal.Title>
             </Modal.Header>
-
+            <Modal.Body>
+                <PlayersList teamId={teamId} isDialog={true} onChangeChoosePlayer={onChangeChoosePlayer}></PlayersList>
+            </Modal.Body>
         </Modal>
     );
 }

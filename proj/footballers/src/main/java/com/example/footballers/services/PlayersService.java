@@ -5,6 +5,7 @@ import com.example.footballers.mappers.PlayersMapper;
 import com.example.footballers.models.Players;
 import com.example.footballers.repos.interfaces.IPlayerRepos;
 import com.example.footballers.services.interfaces.IPlayersService;
+import com.mysql.cj.exceptions.WrongArgumentException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.SerializationUtils;
 
@@ -45,5 +46,9 @@ public class PlayersService implements IPlayersService {
         Players player = _playerRepos.findById(id).orElse(null);
         _playerRepos.delete(player);
         return;
+    }
+
+    public PlayersDto getPlayerData(Integer id) throws Exception {
+        return PlayersMapper.toDto(_playerRepos.findById(id).orElseThrow(Exception::new));
     }
 }

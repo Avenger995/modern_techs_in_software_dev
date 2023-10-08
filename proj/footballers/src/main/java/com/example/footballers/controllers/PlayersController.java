@@ -52,5 +52,15 @@ public class PlayersController {
             return new ResponseEntity<Players>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PlayersDto> getPlayerData(@PathVariable Integer id) {
+        try {
+            PlayersDto dto = _playersService.getPlayerData(id);
+            return new ResponseEntity<PlayersDto>(dto, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<PlayersDto>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
 

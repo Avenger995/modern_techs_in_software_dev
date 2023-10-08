@@ -5,11 +5,11 @@ import '../../styles/PlayersStyle.css';
 import PlayerEditDialog from "./PlayerEditDialog";
 import PlayerDeleteDialog from "./PlayerDeleteDialog";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DialogTypeEnum } from "../../constans/DialogTypeEnum";
 
-const Player = ({player, activate, setActivate, team, isDialog}) => {
+const Player = ({player, activate, setActivate, isDialog, onChangeChoosePlayer}) => {
 
   const [hover, setHover] = useState();
   const [error, setError] = useState(null);
@@ -59,14 +59,19 @@ const Player = ({player, activate, setActivate, team, isDialog}) => {
     setActivate(true);
   }
 
+  function handleChoose() {
+    onChangeChoosePlayer(player.id);
+  }
+
     return (
       <div>
         <Card style={{ width: '10rem', textAlign:'center', margin: '1rem' }} className="player__card" onMouseOver={handleMouseIn} onMouseOut={handleMouseOut}>
         <div className="player__button__container">
             <Card.Img className="player__custom_img" variant="top" src={`${player.img}`}/> 
             <br/>
-            <Button className="player__button" variant="light" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Upd)}><Icon.PencilFill/></Button>
-            <Button className="player__button" variant="danger" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Del)}><Icon.Trash3Fill/></Button>
+            {!isDialog && <Button className="player__button" variant="light" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Upd)}><Icon.PencilFill/></Button>}
+            {!isDialog && <Button className="player__button" variant="danger" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Del)}><Icon.Trash3Fill/></Button>}
+            {isDialog && <Button className="player__button" variant="light" hidden={!hover} onClick={() => handleChoose()}><Icon.Check/></Button>}
         </div>
         <Card.Body>
             <Card.Text>{player.name}</Card.Text>

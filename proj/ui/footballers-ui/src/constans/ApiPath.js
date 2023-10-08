@@ -8,6 +8,7 @@ export const PlayersByTeam = Enviroment.ApiUrl + 'players';
 export const UpdatePlayer = PlayersByTeam;
 export const AddPlayer = PlayersByTeam;
 export const DeletePlayer = PlayersByTeam;
+export const GetPlayer = PlayersByTeam;
 
 export const PositionsList = Enviroment.ApiUrl + 'positions';
 
@@ -44,5 +45,9 @@ export default class ApiPath {
 
     static get DeletePlayer() {
         return DeletePlayer;
+    }
+
+    static get GetPlayer() {
+        return GetPlayer;
     }
 }
