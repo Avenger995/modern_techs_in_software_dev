@@ -1,9 +1,10 @@
+import { FormationData } from "../../models/FormationData";
 
 export default class FormationPlayerAreaCounter {
 
     static fullPitchValue = 0.5;
     static oneHundred = 100;
-    static centerPitchValue = 40;
+    static centerPitchValue = 60;
     static maxLeft = 10; 
 
     static getFormationPlayerAreaData(position, length, amount) {
@@ -21,10 +22,16 @@ export default class FormationPlayerAreaCounter {
     }
 
     static getTopValue(amount) {
+        if (amount === 1) return '40%';
         return (this.centerPitchValue / amount).toFixed() + '%';
     }
 
     static readFormation(formation) {
+        return new FormationData(formation.split('-'));
+    }
 
+    static updateFormationData(initFormationData, area, position, playerId) {
+        initFormationData.playersArray[area][position] = playerId;
+        return initFormationData;
     }
 }

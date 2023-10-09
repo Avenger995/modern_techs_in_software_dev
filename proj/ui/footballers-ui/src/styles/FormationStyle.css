@@ -24,5 +24,6 @@
 }
 
 .formation__player__button {
-    margin: 150% 0% 150% 0%;
+    max-width: min-content;
+    margin: 50px 0% 50px 0%;
 }

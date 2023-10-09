@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import PlayersList from "../Players/PlayersList";
 
 
-const ChoosePlayerDialog = ({active, setActive, error, setError, teamId, id, onChangeChoosePlayer}) => {
+const ChoosePlayerDialog = ({active, setActive, error, setError, teamId, onChangeChoosePlayer}) => {
     
     const [fetch, setFetch] = useState(false);
 

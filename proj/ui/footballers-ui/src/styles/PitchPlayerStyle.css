@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+.pitch__player__icon_group {
+    align-self: end;
+    display: flex;
+}
+
 .pitch__player__icon {
     align-self: end;
     padding: 0;
@@ -12,8 +17,6 @@
 }
 
 .pitch__player__custom_img {
-    max-width: 5rem;
-    max-height: 7rem;
+    max-width: 3rem;
     border-radius: 25px;
-    
 }

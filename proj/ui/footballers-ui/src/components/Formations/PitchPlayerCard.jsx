@@ -2,14 +2,14 @@ import React, {useState, useEffect} from "react";
 import { useFetching } from "../../hooks/useFetching";
 import CrudService from "../../services/CrudService";
 import ApiPath from "../../constans/ApiPath";
-import { Card, Button} from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
 import '../../styles/PitchPlayerStyle.css';
 import { Alert} from 'react-bootstrap';
 import ConstSpinner from "../UI/ConstSpinner";
 import * as Icon from 'react-bootstrap-icons';
 
 
-const PitchPlayerCard = ({playerId, setFree}) => {
+const PitchPlayerCard = ({playerId, setFree, area, position}) => {
 
     const [hover, setHover] = useState();
     const [render, setRender] = useState(true);
@@ -34,6 +34,10 @@ const PitchPlayerCard = ({playerId, setFree}) => {
         }
     }, [render])
 
+    const childSetFree = (area, position, isEdit) => {
+        setFree(area, position, isEdit);
+    }
+
     return (
         <div>
             {player && 
@@ -41,7 +45,10 @@ const PitchPlayerCard = ({playerId, setFree}) => {
             {playerError && <Alert key='danger' variant='danger'>{playerError}</Alert>}
             {isPlayerLoading ? <ConstSpinner></ConstSpinner> : 
             <Card className="pitch__player__card" onMouseOver={handleMouseIn} onMouseOut={handleMouseOut}>
-                <button hidden={!hover} className="pitch__player__icon" onClick={() => setFree()}><Icon.DashCircle/></button>
+                <div className="pitch__player__icon_group">
+                    <button hidden={!hover} className="pitch__player__icon" onClick={() => childSetFree(area, position, true)}><Icon.Pencil/></button>
+                    <button hidden={!hover} className="pitch__player__icon" onClick={() => childSetFree(area, position, false)}><Icon.DashCircle color="red"/></button>
+                </div>
                 <Card.Img className="pitch__player__custom_img" variant="top" src={`${player.img}`}/>
                 <Card.Body>
                     <Card.Text>{player.name}</Card.Text>
@@ -49,7 +56,9 @@ const PitchPlayerCard = ({playerId, setFree}) => {
             </Card>
             }
             </div>}
+            <br/>
         </div>
+        
     );
 }
 
