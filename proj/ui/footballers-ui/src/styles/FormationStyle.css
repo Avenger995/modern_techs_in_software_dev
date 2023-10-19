@@ -27,3 +27,17 @@
     max-width: min-content;
     margin: 50px 0% 50px 0%;
 }
+
+.formation__dropdown {
+    display: flex;
+    align-items: center;
+    margin: 1% 0% 1% 25%;
+}
+
+.formation__dropdown button{
+    margin-left: 1%;
+}
+
+.formation__dropdown input{
+    margin-left: 1%;
+}

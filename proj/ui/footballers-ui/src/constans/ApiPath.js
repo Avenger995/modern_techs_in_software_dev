@@ -12,6 +12,13 @@ export const GetPlayer = PlayersByTeam;
 
 export const PositionsList = Enviroment.ApiUrl + 'positions';
 
+export const FormationList = Enviroment.ApiUrl + 'formations';
+
+export const GamePlan = Enviroment.ApiUrl + 'game-plan';
+export const AddGamePlan = GamePlan;
+export const DeleteGamePlan = GamePlan;
+export const GetGamePlanByTeam = GamePlan + '/by-team';
+
 export const Headers = {'Accept': 'application/json',
     'Content-Type': 'application/json'}
 
@@ -49,5 +56,21 @@ export default class ApiPath {
 
     static get GetPlayer() {
         return GetPlayer;
+    }
+
+    static get GetFormationList() {
+        return FormationList;
+    }
+
+    static get AddGamePlan() {
+        return AddGamePlan;
+    }
+
+    static get GetGamePlans() {
+        return GetGamePlanByTeam;
+    }
+
+    static get DeleteGamePlans() {
+        return DeleteGamePlan;
     }
 }

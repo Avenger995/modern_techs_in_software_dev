@@ -30,6 +30,18 @@ public class Teams {
     @JoinColumn(name = "team", referencedColumnName = "Id")
     private List<Players> Players;
 
+    @OneToMany(targetEntity = GamePlans.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "team", referencedColumnName = "id")
+    private List<GamePlans> GamePlans;
+
+
+    public List<com.example.footballers.models.GamePlans> getGamePlans() {
+        return GamePlans;
+    }
+
+    public void setGamePlans(List<com.example.footballers.models.GamePlans> gamePlans) {
+        GamePlans = gamePlans;
+    }
     public List<com.example.footballers.models.Players> getPlayers() {
         return Players;
     }

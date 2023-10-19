@@ -14,7 +14,7 @@ import java.util.List;
 public interface PlayersMapper {
     PlayersMapper INSTANCE = Mappers.getMapper(PlayersMapper.class);
 
-    @Named("modelToDto")
+    @Named("modelToDtoIterable")
     public static List<PlayersDto> toDtoIterable(List<Players> players){
         ArrayList<PlayersDto> dtos = new ArrayList<>();
         for (Players player: players) {

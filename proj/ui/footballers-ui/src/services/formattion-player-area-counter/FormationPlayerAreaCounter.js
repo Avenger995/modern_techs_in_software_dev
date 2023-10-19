@@ -34,4 +34,8 @@ export default class FormationPlayerAreaCounter {
         initFormationData.playersArray[area][position] = playerId;
         return initFormationData;
     }
+
+    static setFormationData(arrayString) {
+        return {'playersArray': JSON.parse(arrayString)};
+    }
 }

@@ -10,14 +10,16 @@ const ChoosePlayerDialog = ({active, setActive, error, setError, teamId, onChang
     const handleClose = () => setActive(false);
 
     return(
-        <Modal show={active} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Выберите игрока на позицию</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <PlayersList teamId={teamId} isDialog={true} onChangeChoosePlayer={onChangeChoosePlayer}></PlayersList>
-            </Modal.Body>
-        </Modal>
+        <div>
+            <Modal className="modal-lg modal-ku" show={active} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Выберите игрока на позицию</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <PlayersList teamId={teamId} isDialog={true} onChangeChoosePlayer={onChangeChoosePlayer}></PlayersList>
+                </Modal.Body>
+            </Modal>
+        </div>
     );
 }
 

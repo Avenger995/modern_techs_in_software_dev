@@ -19,8 +19,7 @@
 }
 
 .player__custom_img {
-    max-width: 5rem;
-    max-height: 7rem;
+    width: 5rem;
     border-radius: 25px;
 }
 

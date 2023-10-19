@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "../../styles/FormationStyle.css";
 import * as Icon from 'react-bootstrap-icons';
@@ -6,16 +6,13 @@ import FormationPlayerAreaCounter from "../../services/formattion-player-area-co
 import ChoosePlayerDialog from "./ChoosePlayerDialog";
 import PitchPlayerCard from "./PitchPlayerCard";
 
-export const PlayerArea = ({teamId}) => {
-
-    const formation = '4-3-3';
-
+export const PlayerArea = ({teamId, formationData, setFormationData, isViewer}) => {
+    
     const [, forceUpdate] = useReducer(x => x + 1, 0);
     const [currentAreaAndPostion, setCurrentAreaAndPostion] = useState([0, 0]);
-    const [formationData, setFormationData] = useState(FormationPlayerAreaCounter.readFormation(formation));
     const [activate, setActivate] = useState(false);
     const [error, setError] = useState(null);
-    
+
     function openDialog(area, position) {
         setCurrentAreaAndPostion([area, position]);
         setActivate(true);
@@ -39,8 +36,8 @@ export const PlayerArea = ({teamId}) => {
         <div className="formation__pitch__area">
             <div className="formation__player__area">
                 {formationData.playersArray[0][0] === 0 ? 
-                    <Button className="formation__player__button" onClick={() => openDialog(0, 0)}><Icon.PlusCircle/></Button> :
-                    <PitchPlayerCard playerId={formationData.playersArray[0][0]} setFree={setFree} area={0} position={0}></PitchPlayerCard>
+                    <Button hidden={isViewer} className="formation__player__button" onClick={() => openDialog(0, 0)}><Icon.PlusCircle/></Button> :
+                    <PitchPlayerCard playerId={formationData.playersArray[0][0]} setFree={setFree} area={0} position={0} isViewer={isViewer}></PitchPlayerCard>
                 }
             </div>
             {
@@ -52,8 +49,8 @@ export const PlayerArea = ({teamId}) => {
                             playersArray.map((player, j) => 
                                 {
                                     return player === 0 ? 
-                                    <Button className="formation__player__button" onClick={() => openDialog(i + 1, j)} key={j}><Icon.PlusCircle/></Button> :
-                                    <PitchPlayerCard playerId={player} setFree={setFree} area={i + 1} position={j}  key={j}></PitchPlayerCard>
+                                    <Button hidden={isViewer} className="formation__player__button" onClick={() => openDialog(i + 1, j)} key={j}><Icon.PlusCircle/></Button> :
+                                    <PitchPlayerCard playerId={player} setFree={setFree} area={i + 1} position={j}  key={j} isViewer={isViewer}></PitchPlayerCard>
                                 }
                             )
                         } 

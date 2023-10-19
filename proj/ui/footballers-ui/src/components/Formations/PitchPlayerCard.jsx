@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useReducer} from "react";
 import { useFetching } from "../../hooks/useFetching";
 import CrudService from "../../services/CrudService";
 import ApiPath from "../../constans/ApiPath";
@@ -9,7 +9,7 @@ import ConstSpinner from "../UI/ConstSpinner";
 import * as Icon from 'react-bootstrap-icons';
 
 
-const PitchPlayerCard = ({playerId, setFree, area, position}) => {
+const PitchPlayerCard = ({playerId, setFree, area, position, isViewer}) => {
 
     const [hover, setHover] = useState();
     const [render, setRender] = useState(true);
@@ -46,8 +46,8 @@ const PitchPlayerCard = ({playerId, setFree, area, position}) => {
             {isPlayerLoading ? <ConstSpinner></ConstSpinner> : 
             <Card className="pitch__player__card" onMouseOver={handleMouseIn} onMouseOut={handleMouseOut}>
                 <div className="pitch__player__icon_group">
-                    <button hidden={!hover} className="pitch__player__icon" onClick={() => childSetFree(area, position, true)}><Icon.Pencil/></button>
-                    <button hidden={!hover} className="pitch__player__icon" onClick={() => childSetFree(area, position, false)}><Icon.DashCircle color="red"/></button>
+                    <button hidden={!hover || isViewer} className="pitch__player__icon" onClick={() => childSetFree(area, position, true)}><Icon.Pencil/></button>
+                    <button hidden={!hover || isViewer} className="pitch__player__icon" onClick={() => childSetFree(area, position, false)}><Icon.DashCircle color="red"/></button>
                 </div>
                 <Card.Img className="pitch__player__custom_img" variant="top" src={`${player.img}`}/>
                 <Card.Body>

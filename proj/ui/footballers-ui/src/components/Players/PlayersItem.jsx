@@ -56,7 +56,7 @@ const PlayersItem = ({pos, activate, setActivate, team, isDialog, onChangeChoose
                 <h2>{pos.position}</h2>
                 {!isDialog && <Button variant="secondary" onClick={() => updateType(DialogTypeEnum.Add)}><Icon.PlusCircle/></Button>}
             </div>
-            <div>
+            <div className="d-flex flex-wrap">
                 {pos.players.map(p => 
                     <Player player={p} key={p.id} activate={activate} setActivate={setActivate} 
                         isDialog={isDialog} onChangeChoosePlayer={onChangeChoosePlayer}/>)}
