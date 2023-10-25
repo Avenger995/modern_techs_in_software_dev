@@ -1,0 +1,15 @@
+@startuml
+
+Пользователь as user
+
+node "Система автоматизированного создания составов" {
+  [Web-интерфейс] as webInterface
+  [API] as api
+}
+
+database Database as db
+
+user ..> webInterface: Браузер
+webInterface -> api: HTTP
+api --> db: ORM
+@enduml

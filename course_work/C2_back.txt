@@ -1,0 +1,40 @@
+@startuml
+
+
+node "API" {
+  package Контроллеры as controllers  {
+    [Команды] as teamsController
+    [Игроки] as playersController
+    [Составы] as formationsController
+  }
+  
+  package Сервисы as services  {
+    [Команды] as teamsServices
+    [Игроки] as playersServices
+    [Составы] as formationsServices
+  }
+  
+  package Репозитории as repos  {
+    [Команды] as teamsRepos
+    [Игроки] as playersRepos
+    [Составы] as formationsRepos
+  }
+  
+  package БДМаппинг as dbMapping  {
+    [ORM] as orm      
+    [Модели] as models
+    [DTO] as dto
+  }
+  
+  
+}
+
+WebИнтерфейс --> controllers
+
+controllers --> services
+services --> repos
+repos --> dbMapping
+
+dbMapping --> database
+
+@enduml

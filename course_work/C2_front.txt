@@ -1,0 +1,37 @@
+@startuml
+
+
+node "Web-интерфейс" as webInterface {
+  package Страницы as pages  {
+    [Команды] as teamsPage
+    [Игроки] as playersPage
+    [Составы] as formationsPage
+  }
+  
+  package Компоненты as components {
+    [Команды] as teamsComponent
+    [Игроки] as playersComponent
+    [Составы] as formationsComponent
+    [UI Общие] as uiComponent
+  }
+  
+  package Стили as styles {
+    [Команды] as teamsStyles
+    [Игроки] as playersStyles
+    [Составы] as formationsStyles
+  }
+  
+  package Сервисы as services {
+    [Вспомогательный] as utilsService
+    [CRUD-сервис] as crudService
+  }
+}
+
+user ..> webInterface
+
+pages --> components
+pages ..> styles
+components ..> styles
+components --> crudService
+crudService --> API: HTTP
+@enduml

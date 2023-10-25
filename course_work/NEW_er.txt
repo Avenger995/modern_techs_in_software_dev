@@ -1,0 +1,58 @@
+@startuml
+' UML legend:
+' table = class
+' #pkey
+' -fkey
+' +index
+
+class Teams {
+  ==
+    #Id: int
+    Name: string
+    ShortName: string
+    DateTimeAdd: Date
+    Img: blob
+  ==
+}
+
+class Players {
+  ==
+    #Id: int
+    -TeamId: int
+    -PositionId: int
+    Name: string
+    Number: int
+    Age: int
+    Img: blob
+  ==
+}
+
+class PositionList {
+  ==
+    #Id: int
+    Position: string
+  ==
+}
+
+class Formations {
+  ==
+    #Id: int
+    Formation: string
+  ==
+}
+
+class GamePlans {
+  ==
+    #Id: int
+    -FormationId: int
+    -TeamId: int
+    Name: string
+    Array: json
+  ==
+}
+
+Teams --* Players: 1:M
+PositionList --* Players: 1:M
+GamePlans --* Formations: 1:M
+
+@enduml
