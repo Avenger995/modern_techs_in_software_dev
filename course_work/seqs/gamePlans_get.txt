@@ -1,0 +1,37 @@
+@startuml
+'seq diag for gamePlans (get)
+
+
+actor User as user
+participant "UI" as ui
+participant "API" as api
+participant "SQL" as sql
+
+user -> ui: Переход на страницу с составами
+activate ui
+ui -> api: GET /api/game-plan/by-team/{teamId}
+activate api 
+api -> sql: Запрос на получение данных
+activate sql
+sql --> api: Успешное получение даннных
+deactivate sql
+api -> api: Перевод данных в DTO
+api --> ui: Статус 200 и DTO
+deactivate api
+ui --> user: Наполнение выпдающего списка
+user -> ui: Выбор состава
+ui -> ui: Генрация вида схемы
+ui -> ui: Чтение id игроков в составе
+ui -> api: GET /api/players/{id}
+activate api 
+api -> sql: Запрос на получение данных
+activate sql
+sql --> api: Успешное получение даннных
+deactivate sql
+api -> api: Перевод данных в DTO
+api --> ui: Статус 200 и DTO
+deactivate api
+ui --> user: Отображение состава и игроков
+deactivate ui
+
+@enduml

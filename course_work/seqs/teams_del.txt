@@ -1,0 +1,25 @@
+@startuml
+'seq diag for teams (del)
+
+
+actor User as user
+participant "UI" as ui
+participant "API" as api
+participant "SQL" as sql
+
+user -> ui: Удаление команды
+ui --> user: Модульное окно с предупреждением
+user -> ui: Подтверждение
+activate ui
+ui -> api: DELETE /api/teams/{id}
+activate api 
+api -> sql: Удаление по id
+activate sql
+sql --> api: Успешное удаление
+deactivate sql
+api --> ui: Статус 200
+deactivate api
+ui --> user: Высплвающее окно об успешности
+deactivate ui
+
+@enduml

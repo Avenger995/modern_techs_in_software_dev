@@ -1,0 +1,26 @@
+@startuml
+'seq diag for teams (add)
+
+
+actor User as user
+participant "UI" as ui
+participant "API" as api
+participant "SQL" as sql
+
+user -> ui: Добавление новой команды
+ui --> user: Модульное окно
+user -> ui: Ввод и отправка параметров команды
+activate ui
+ui -> api: POST /api/teams
+activate api
+api -> api: Маппинг DTO к модели 
+api -> sql: Отправка модели
+activate sql
+sql --> api: Модель успешно добавлена
+deactivate sql
+api --> ui: Статус 200
+deactivate api
+ui --> user: Высплвающее окно об успешности
+deactivate ui
+
+@enduml
