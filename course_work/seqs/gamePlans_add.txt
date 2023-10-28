@@ -23,7 +23,7 @@ user -> ui: Выбор схемы
 ui -> ui: Генерация вида схемы
 ui --> user: Интерактивное поле
 user -> ui: Выбор позиции
-ui -> api: GET /api/positions
+ui -> api: GET /api/positions/{teamId}
 activate api 
 api -> sql: Запрос на получение данных
 activate sql
