@@ -24,4 +24,18 @@ public interface PositionListMapper {
         }
         return dtos;
     }
+
+    @Named("modelToDtoByTeam")
+    public static Iterable<PositionListDto> toDtoIterableByTeam(Iterable<PositionList> positionLists,
+                                                                Integer teamID){
+        ArrayList<PositionListDto> dtos = new ArrayList<PositionListDto>();
+        for (PositionList positionList: positionLists) {
+            PositionListDto dto = new PositionListDto();
+            dto.setId(positionList.getId());
+            dto.setPosition(positionList.getPosition());
+            dto.setPlayers(PlayersMapper.toDtoIterable(positionList.getPlayersByTeam(teamID)));
+            dtos.add(dto);
+        }
+        return dtos;
+    }
 }

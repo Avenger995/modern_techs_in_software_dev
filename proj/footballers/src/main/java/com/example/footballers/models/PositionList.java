@@ -1,7 +1,9 @@
 package com.example.footballers.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class PositionList {
@@ -35,6 +37,16 @@ public class PositionList {
 
     public List<com.example.footballers.models.Players> getPlayers() {
         return Players;
+    }
+
+    public List<com.example.footballers.models.Players> getPlayersByTeam(Integer teamId) {
+        ArrayList<com.example.footballers.models.Players> result = new ArrayList<>();
+        for (Players player: Players) {
+            if (Objects.equals(player.getTeam(), teamId)) {
+                result.add(player);
+            }
+        }
+        return result;
     }
 
     public void setPlayers(List<com.example.footballers.models.Players> players) {

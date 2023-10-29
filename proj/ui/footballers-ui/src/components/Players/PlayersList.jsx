@@ -12,7 +12,7 @@ const PlayersList = ({teamId, isDialog, onChangeChoosePlayer}) => {
     const [positions, setPositions] = useState([]);
     const [activate, setActivate] = useState(false);
     const [fetchData, isDataLoading, dataError] = useFetching(async () => {
-        const response = await CrudService.getAll(ApiPath.PositionsList);
+        const response = await CrudService.getAll(`${ApiPath.PositionsListByTeam}/${teamId}`);
         setPositions(response.data);
     });
 

@@ -19,4 +19,9 @@ public class PositionListController {
     public Iterable<PositionListDto> getAllPositions(){
         return _positionsListService.getAllPositionList();
     }
+
+    @GetMapping("by-team/{id}")
+    public Iterable<PositionListDto> getPositionsByTeam(@PathVariable Integer id){
+        return _positionsListService.getAllPositionListByTeam(id);
+    }
 }

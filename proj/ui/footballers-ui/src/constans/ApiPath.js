@@ -11,6 +11,7 @@ export const DeletePlayer = PlayersByTeam;
 export const GetPlayer = PlayersByTeam;
 
 export const PositionsList = Enviroment.ApiUrl + 'positions';
+export const PositionsListByTeam = PositionsList + '/by-team';
 
 export const FormationList = Enviroment.ApiUrl + 'formations';
 
@@ -40,6 +41,10 @@ export default class ApiPath {
 
     static get PositionsList() {
         return PositionsList;
+    }
+
+    static get PositionsListByTeam() {
+        return PositionsListByTeam;
     }
 
     static get UpdatePlayer() {

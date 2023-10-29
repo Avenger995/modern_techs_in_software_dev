@@ -10,8 +10,8 @@ import {useNavigate} from 'react-router-dom';
 
 const PlayersPage = () => {
     const [searchParams] = useSearchParams();
-    const [team, setTeam] = useState(null);
-    const [teamName, setTeamName] = useState(null);
+    const [team, setTeam] = useState();
+    const [teamName, setTeamName] = useState();
 
     useEffect(() => {
         setTeam(searchParams.get("team"));
@@ -29,7 +29,7 @@ const PlayersPage = () => {
             }><Icon.House/> Вернуться к командам</Button>
         </div>
         <div className="pos__and__players__container">
-            <PlayersList teamId={team} isDialog={false}/>
+            {team && <PlayersList teamId={team} isDialog={false}/>}
         </div>
     </div>
     );

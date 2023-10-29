@@ -6,4 +6,6 @@ import com.example.footballers.models.PositionList;
 public interface IPositionsListService {
 
     Iterable<PositionListDto> getAllPositionList();
+
+    Iterable<PositionListDto> getAllPositionListByTeam(Integer teamId);
 }

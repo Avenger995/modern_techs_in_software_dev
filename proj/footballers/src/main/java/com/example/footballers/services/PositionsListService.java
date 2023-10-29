@@ -24,4 +24,9 @@ public class PositionsListService implements IPositionsListService {
     public Iterable<PositionListDto> getAllPositionList() {
         return PositionListMapper.toDtoIterable(_positionListRepos.findAll());
     }
+
+    @Override
+    public Iterable<PositionListDto> getAllPositionListByTeam(Integer teamId) {
+        return PositionListMapper.toDtoIterableByTeam(_positionListRepos.findAll(), teamId);
+    }
 }
