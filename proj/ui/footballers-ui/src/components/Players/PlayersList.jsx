@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ConstSpinner from "../UI/ConstSpinner";
 import PlayersItem from "./PlayersItem";
 
-const PlayersList = ({teamId, isDialog, onChangeChoosePlayer}) => {
+const PlayersList = ({teamId, isDialog, onChangeChoosePlayer, chosenPlayers}) => {
 
     const [positions, setPositions] = useState([]);
     const [activate, setActivate] = useState(false);
@@ -28,7 +28,8 @@ const PlayersList = ({teamId, isDialog, onChangeChoosePlayer}) => {
             <div>
                 {positions.map((pos) => 
                     <PlayersItem pos={pos} key={pos.id} activate={activate} 
-                        setActivate={setActivate} team={teamId} isDialog={isDialog} onChangeChoosePlayer={onChangeChoosePlayer}/>
+                        setActivate={setActivate} team={teamId} isDialog={isDialog} 
+                        onChangeChoosePlayer={onChangeChoosePlayer} chosenPlayers={chosenPlayers}/>
                 )} 
             </div>} 
         </div>

@@ -59,7 +59,7 @@ export const PlayerArea = ({teamId, formationData, setFormationData, isViewer}) 
                 )
             }
             <ChoosePlayerDialog active={activate} setActive={setActivate} error={error} 
-                setError={setError} teamId={teamId} onChangeChoosePlayer={handleValueChange}/>
+                setError={setError} teamId={teamId} onChangeChoosePlayer={handleValueChange} chosenPlayers={formationData.playersArray}/>
         </div>
     );
 }

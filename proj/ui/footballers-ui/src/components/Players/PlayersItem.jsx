@@ -9,7 +9,7 @@ import PlayerAddDialog from "./PlayerAddDialog";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const PlayersItem = ({pos, activate, setActivate, team, isDialog, onChangeChoosePlayer}) => {
+const PlayersItem = ({pos, activate, setActivate, team, isDialog, onChangeChoosePlayer, chosenPlayers}) => {
 
     const [type, setType] = useState(null);
     const [error, setError] = useState(null);
@@ -59,7 +59,7 @@ const PlayersItem = ({pos, activate, setActivate, team, isDialog, onChangeChoose
             <div className="d-flex flex-wrap">
                 {pos.players.map(p => 
                     <Player player={p} key={p.id} activate={activate} setActivate={setActivate} 
-                        isDialog={isDialog} onChangeChoosePlayer={onChangeChoosePlayer}/>)}
+                        isDialog={isDialog} onChangeChoosePlayer={onChangeChoosePlayer} chosenPlayers={chosenPlayers}/>)}
             </div>
             {type === DialogTypeEnum.Add && <PlayerAddDialog active={activate} 
                 setActive={setActivate} 

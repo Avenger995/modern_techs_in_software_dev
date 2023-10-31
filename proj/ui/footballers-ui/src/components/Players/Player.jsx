@@ -4,16 +4,24 @@ import {Button, Card} from 'react-bootstrap';
 import '../../styles/PlayersStyle.css';
 import PlayerEditDialog from "./PlayerEditDialog";
 import PlayerDeleteDialog from "./PlayerDeleteDialog";
+import FormationPlayerAreaCounter from "../../services/formattion-player-area-counter/FormationPlayerAreaCounter";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DialogTypeEnum } from "../../constans/DialogTypeEnum";
 
-const Player = ({player, activate, setActivate, isDialog, onChangeChoosePlayer}) => {
+const Player = ({player, activate, setActivate, isDialog, onChangeChoosePlayer, chosenPlayers}) => {
 
   const [hover, setHover] = useState();
   const [error, setError] = useState(null);
   const [type, setType] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(null);
+
+  useEffect(() => {
+    if (isDisabled === null && isDialog) {
+      setIsDisabled(FormationPlayerAreaCounter.isPlayerDisabledToChoose(chosenPlayers, player.id));
+    }  
+  }, [isDisabled])
 
   const handleMouseIn = () => {
     setHover(true);
@@ -71,7 +79,7 @@ const Player = ({player, activate, setActivate, isDialog, onChangeChoosePlayer})
             <br/>
             {!isDialog && <Button className="player__button" variant="light" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Upd)}><Icon.PencilFill/></Button>}
             {!isDialog && <Button className="player__button" variant="danger" hidden={!hover} onClick={() => updateType(DialogTypeEnum.Del)}><Icon.Trash3Fill/></Button>}
-            {isDialog && <Button className="player__button" variant="light" hidden={!hover} onClick={() => handleChoose()}><Icon.Check/></Button>}
+            {isDialog && <Button disabled={isDisabled} className="player__button" variant="light" hidden={!hover} onClick={() => handleChoose()}><Icon.Check/></Button>}
         </div>
         <Card.Body>
             <Card.Text>{player.name}</Card.Text>

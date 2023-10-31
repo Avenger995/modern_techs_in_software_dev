@@ -38,4 +38,12 @@ export default class FormationPlayerAreaCounter {
     static setFormationData(arrayString) {
         return {'playersArray': JSON.parse(arrayString)};
     }
+
+    static isPlayerDisabledToChoose(formationData, playerId) {
+        for (let i = 0; i < formationData.length; i++) { 
+            if (formationData[i].includes(playerId)) 
+                return true;
+        }
+        return false;
+    }
 }
