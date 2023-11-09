@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 import UrlPath from "../constans/UrlPath";
 import { routes } from "../router/routes";
 
 const AppRouter = () => {
+
+    const [isLogined, setIsLogined] = useState()
+
     return (
         <Routes>
             {routes.map(route =>
@@ -14,7 +17,7 @@ const AppRouter = () => {
                     key={route.path}    
                 />
             )}
-            <Route path="*" element={<Navigate to={UrlPath.Teams} replace />} />
+            <Route path="*" element={<Navigate to={UrlPath.Login} replace />} />
         </Routes>
     )
 }

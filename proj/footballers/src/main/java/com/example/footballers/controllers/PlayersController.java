@@ -4,9 +4,12 @@ import com.example.footballers.dto.PlayersDto;
 import com.example.footballers.models.ErrorApiResponse;
 import com.example.footballers.models.Players;
 import com.example.footballers.services.interfaces.IPlayersService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -21,6 +24,8 @@ public class PlayersController {
         _playersService = playersService;
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @PutMapping()
     public ResponseEntity updatePlayerData(@RequestBody PlayersDto dto){
         try {
@@ -33,6 +38,8 @@ public class PlayersController {
         }
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @PostMapping()
     public ResponseEntity<Players> addPlayerData(@RequestBody PlayersDto dto) {
         try {
@@ -43,6 +50,8 @@ public class PlayersController {
         }
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Players> delPlayerData(@PathVariable Integer id) {
         try {
@@ -53,6 +62,8 @@ public class PlayersController {
         }
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @GetMapping("/{id}")
     public ResponseEntity<PlayersDto> getPlayerData(@PathVariable Integer id) {
         try {

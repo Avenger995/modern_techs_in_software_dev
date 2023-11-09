@@ -5,9 +5,12 @@ import com.example.footballers.dto.TeamsDto;
 import com.example.footballers.models.ErrorApiResponse;
 import com.example.footballers.models.GamePlans;
 import com.example.footballers.services.interfaces.IGamePlanService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +24,8 @@ public class GamePlansController {
         _gamePlanService = gamePlanService;
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @PostMapping()
     public ResponseEntity<?> addGamePlan(@RequestBody GamePlansDto dto) {
         try {
@@ -31,11 +36,15 @@ public class GamePlansController {
         }
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @GetMapping("/by-team/{teamId}")
     public Iterable<GamePlansDto> getAllGamePlans(@PathVariable Integer teamId) {
         return _gamePlanService.getAllGamePlansByTeam(teamId);
     }
 
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
+    @PreAuthorize("hasAuthority('USER')")
     @DeleteMapping("/{id}")
     public ResponseEntity deleteGamePlanById(@PathVariable Integer id) {
         try {
