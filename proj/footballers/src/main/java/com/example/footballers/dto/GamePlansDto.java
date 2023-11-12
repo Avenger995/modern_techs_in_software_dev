@@ -1,5 +1,7 @@
 package com.example.footballers.dto;
 
+import java.util.Date;
+
 public class GamePlansDto {
 
     public GamePlansDto() {
@@ -16,6 +18,10 @@ public class GamePlansDto {
     private Integer Team;
 
     private String Array;
+
+    private Date DtCreation;
+
+    private String Owner;
 
     public String getFormationName() {
         return FormationName;
@@ -63,5 +69,21 @@ public class GamePlansDto {
 
     public void setTeam(Integer team) {
         Team = team;
+    }
+
+    public Date getDtCreation() {
+        return DtCreation;
+    }
+
+    public void setDtCreation(Date dtCreation) {
+        DtCreation = dtCreation;
+    }
+
+    public String getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(String owner) {
+        Owner = owner;
     }
 }

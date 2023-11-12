@@ -1,0 +1,23 @@
+#form-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-inner-container {
+    background-color: white;
+    max-width: 70%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px gainsboro;
+}
+
+#sign-up-container, #sign-in-container {
+    padding: 60px 80px;
+    width: 320px;
+    display: inline-block;
+}
+
+#form-controls {
+    margin-bottom: 20px;
+}

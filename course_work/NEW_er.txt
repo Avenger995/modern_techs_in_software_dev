@@ -48,10 +48,13 @@ class GamePlans {
     -TeamId: int
     Name: string
     Array: json
+    DtCreation: datetime
+    Owner: string
   ==
 }
 
 Teams --* Players: 1:M
+Teams --* GamePlans: 1:M
 PositionList --* Players: 1:M
 GamePlans --* Formations: 1:M
 

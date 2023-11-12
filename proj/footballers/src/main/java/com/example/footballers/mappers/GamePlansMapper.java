@@ -24,6 +24,8 @@ public interface GamePlansMapper {
         gamePlans.setName(gamePlansDto.getName());
         gamePlans.setTeam(gamePlansDto.getTeam());
         gamePlans.setArray(gamePlansDto.getArray());
+        gamePlans.setDtCreation(gamePlansDto.getDtCreation());
+        gamePlans.setOwner(gamePlansDto.getOwner());
         return gamePlans;
     }
 
@@ -39,6 +41,8 @@ public interface GamePlansMapper {
             dto.setFormationName(getFormationNameById(gamePlan.getFormation(), formations));
             dto.setTeam(gamePlan.getTeam());
             dto.setArray(gamePlan.getArray());
+            dto.setDtCreation(gamePlan.getDtCreation());
+            dto.setOwner(gamePlan.getOwner());
             dtos.add(dto);
         }
         return dtos;

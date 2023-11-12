@@ -19,6 +19,7 @@ public class UserService {
     public UserService() {
         this.users = List.of(
                 new User("mainCoach", "1234", "Сергей", "Семак", Collections.singleton(Role.USER)),
+                new User("revCoach", "1234", "Анатолий", "Тимощук", Collections.singleton(Role.USER)),
                 new User("admin", "12345", "admin", "admin", Collections.singleton(Role.ADMIN))
         );
     }

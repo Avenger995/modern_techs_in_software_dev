@@ -16,6 +16,7 @@ import GamePlanSelect from "../components/Formations/GamePlanSelect";
 
 import {  ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Utils from "../services/utils/utils";
 
 const FormationPage = () => {
 
@@ -32,6 +33,8 @@ const FormationPage = () => {
     const [replaceId, setReplaceId] = useState();
     const [gamePlanId, setGamePlanId] = useState(false);
     const [isReloadGamePlans, setIsReloadGamePlans] = useState(false);
+    const [dtCreation, setDtCreation] = useState(undefined);
+    const [owner, setOwner] = useState(undefined);
 
     useEffect(() => {
         if (isReloadGamePlans) {
@@ -113,15 +116,17 @@ const FormationPage = () => {
         setFormation(new Formation(formationId, formationName));
     }
 
-    const handleGamePlanChange = (array, id) => {
+    const handleGamePlanChange = (array, id, dtCreation, owner) => {
         setIsRenderPitch(false);
         setGamePlanId(id);
+        setOwner(owner);
+        setDtCreation(`${new Date(dtCreation).toLocaleDateString()} ${new Date(dtCreation).toLocaleTimeString()}`);
         setFormationData({...FormationPlayerAreaCounter.setFormationData(array)});
         if (array) setIsButtonAvailable(true);
     }
 
     const handleSave = async () => {
-        let obj = new GamePlansModel(0, formation.id, gamePlanName, team, formationData.playersArray)
+        let obj = new GamePlansModel(0, formation.id, gamePlanName, team, formationData.playersArray, Utils.getLogin());
         let res = await addGamePlan(obj);
         if (res) {
             setError('');
@@ -151,6 +156,8 @@ const FormationPage = () => {
     const deleteFormation = async () => {
         const response = await deleteFormationCrud();
         if (response) {
+            setDtCreation(undefined);
+            setOwner(undefined);
             setFormationData();
             setIsRenderPitch(false);
             setIsReloadGamePlans(true);
@@ -181,6 +188,7 @@ const FormationPage = () => {
                 {!isReloadGamePlans && 
                     <GamePlanSelect teamId={team} handleGamePlanChange={handleGamePlanChange} replaceId={replaceId} setReplaceId={setReplaceId}></GamePlanSelect>}
                 <Button className="btn-secondary" variant="danger" onClick={() => deleteFormation()} disabled={!isButtonAvailable}><Icon.Trash/> Удалить</Button>
+                {isRenderPitch && dtCreation && owner && <label >Дата создания состава: {dtCreation}. Владелец: {owner}</label>}
             </div> 
             :
             <div className="formation__dropdown">

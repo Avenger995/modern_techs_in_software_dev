@@ -32,7 +32,7 @@ const GamePlanSelect = ({teamId, handleGamePlanChange, replaceId, setReplaceId})
         if (selectedOption && replaceId) {
             setReplaceId(null);
             let gamePlanData = gamePlans.find(x => x.id === selectedOption);
-            handleGamePlanChange(gamePlanData.array, selectedOption);
+            handleGamePlanChange(gamePlanData.array, selectedOption, gamePlanData.dtCreation, gamePlanData.owner);
         }
     }, [selectedOption])
 
@@ -40,7 +40,7 @@ const GamePlanSelect = ({teamId, handleGamePlanChange, replaceId, setReplaceId})
         let id = Number(event.target.value);
         setSelectedOption(id);
         let gamePlanData = gamePlans.find(x => x.id === id);
-        handleGamePlanChange(gamePlanData.array, id);
+        handleGamePlanChange(gamePlanData.array, id, gamePlanData.dtCreation, gamePlanData.owner);
     } 
 
     return( 

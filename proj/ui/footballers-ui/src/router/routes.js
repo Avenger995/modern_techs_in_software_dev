@@ -10,3 +10,5 @@ export const routes = [
     {path: UrlPath.Formations, element: <FormationPage/>, exact: true},
     {path: UrlPath.Login, element: <LoginPage/>, exact: true}    
 ]
+
+export const loginRoute = routes.find(x => x.path === UrlPath.Login);

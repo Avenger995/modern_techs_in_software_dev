@@ -1,6 +1,7 @@
 package com.example.footballers.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class GamePlans {
@@ -20,6 +21,10 @@ public class GamePlans {
 
     @Column(columnDefinition = "JSON")
     private String Array;
+
+    private Date DtCreation;
+
+    private String Owner;
 
     public Integer getId() {
         return Id;
@@ -59,5 +64,21 @@ public class GamePlans {
 
     public void setTeam(Integer team) {
         Team = team;
+    }
+
+    public Date getDtCreation() {
+        return DtCreation;
+    }
+
+    public void setDtCreation(Date dtCreation) {
+        DtCreation = dtCreation;
+    }
+
+    public String getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(String owner) {
+        Owner = owner;
     }
 }

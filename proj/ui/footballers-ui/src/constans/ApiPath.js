@@ -1,4 +1,5 @@
 import Enviroment from "../enviroment/Enviroment";
+import Utils from "../services/utils/utils";
 
 export const Teams = Enviroment.ApiUrl + 'teams';
 export const AddTeams = Teams;
@@ -20,12 +21,28 @@ export const AddGamePlan = GamePlan;
 export const DeleteGamePlan = GamePlan;
 export const GetGamePlanByTeam = GamePlan + '/by-team';
 
-export const Headers = {'Accept': 'application/json',
-    'Content-Type': 'application/json'}
+export const Login = Enviroment.ApiUrl + 'auth/login'
+
+export const Headers = {'Authorization': `Bearer ${Utils.getJwt()}`,
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'};
+
+export const HeadersLogin = {'Accept': 'application/json',
+'Content-Type': 'application/json'};
+
+export const HeadersUsual = {'Authorization': `Bearer ${Utils.getJwt()}`};
 
 export default class ApiPath {
     static get Headers() {
         return Headers;
+    }
+
+    static get HeadersLogin() {
+        return HeadersLogin;
+    }
+
+    static get HeadersUsual() {
+        return HeadersUsual;
     }
 
     static get Teams() {
@@ -77,5 +94,9 @@ export default class ApiPath {
 
     static get DeleteGamePlans() {
         return DeleteGamePlan;
+    }
+
+    static get Login() {
+        return Login;
     }
 }
